@@ -1,0 +1,10 @@
+it works
+<ul>
+    <li *ngFor="let dost of dosts">
+        <div (click)="join_room(dost)">
+            Name: {{ dost.dost_name }} |
+            ID: {{ dost.dost_id }} |
+            Chatroom: {{ dost.chatroom_id }}
+        </div>
+    </li>
+</ul>

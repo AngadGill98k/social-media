@@ -1,0 +1,16 @@
+<button (click)="handlelist()">list</button>
+<button (click)="handlesearch()">seacrh</button>
+<button (click)="handlereq()">request</button>
+
+
+<div *ngIf="list">
+    <app-list></app-list>
+</div>
+
+<div *ngIf="search">
+    <app-search></app-search>
+</div>
+
+<div *ngIf="req">
+<app-req></app-req>
+</div>

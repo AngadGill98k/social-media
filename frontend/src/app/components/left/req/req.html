@@ -1,0 +1,8 @@
+<ul>
+   <li *ngFor="let request of requests" >
+    <p>name is {{request.name}}</p>
+    <p>id is {{request.id}}</p>
+    <button (click)="accept(request.id)">accpt</button>
+    <button (click)="reject(request.id)">reject</button>
+   </li>
+</ul>
