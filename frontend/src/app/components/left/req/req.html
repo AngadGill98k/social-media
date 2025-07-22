@@ -1,8 +1,12 @@
-<ul>
-   <li *ngFor="let request of requests" >
-    <p>name is {{request.name}}</p>
-    <p>id is {{request.id}}</p>
-    <button (click)="accept(request.id)">accpt</button>
-    <button (click)="reject(request.id)">reject</button>
-   </li>
+<ul id="request-list">
+  <li *ngFor="let request of requests" class="request-item">
+    <div class="request-card">
+      <p class="request-name">Name: {{ request.name }}</p>
+      <p class="request-id">ID: {{ request.id }}</p>
+      <div class="request-actions">
+        <button class="accept-btn" (click)="accept(request.id)">Accept</button>
+        <button class="reject-btn" (click)="reject(request.id)">Reject</button>
+      </div>
+    </div>
+  </li>
 </ul>

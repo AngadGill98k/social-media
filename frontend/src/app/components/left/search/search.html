@@ -1,16 +1,16 @@
-<p>search works!</p>
-<div>
-<input [(ngModel)]="value" type="text" placeholder="search for user">
-<button (click)="handleseacrh()">searcjh</button>
+
+
+<div class="search-container">
+  <input [(ngModel)]="value" type="text" placeholder="Search for user" class="search-input" />
+  <button (click)="handleseacrh()" class="search-button">Search</button>
 </div>
-<div>
 
-
-<ul>
-    <li *ngIf="result">
-        <p>name is{{result.dost_name}}</p>
-        <p>id is {{result.dost_id}}</p>
+<div class="result-container" *ngIf="result">
+  <ul id="search-result">
+    <li class="search-result-item">
+      <p class="result-name">Name: {{ result.dost_name }}</p>
+      <p class="result-id">ID: {{ result.dost_id }}</p>
     </li>
-</ul>
-<button (click)="add">add</button>
+  </ul>
+  <button class="add-button" (click)="add()">Add</button>
 </div>

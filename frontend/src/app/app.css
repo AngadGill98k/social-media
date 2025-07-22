@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  height: 90vh;
+}
+
+.left {
+  background-color: aqua;
+  flex: 1;
+}
+
+.middle {
+  background-color: rgb(154, 139, 206);
+  flex: 3;
+}
+
+.right {
+  background-color: blueviolet;
+  flex: 1;
+}
+.dashboard{
+  height: 100vh;
+}

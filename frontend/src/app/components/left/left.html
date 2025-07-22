@@ -1,16 +1,33 @@
-<button (click)="handlelist()">list</button>
-<button (click)="handlesearch()">seacrh</button>
-<button (click)="handlereq()">request</button>
+<div class="tab-buttons">
+  <button 
+    (click)="handlelist()" 
+    [class.active]="list"
+    class="tab-button"
+  >List</button>
 
+  <button 
+    (click)="handlesearch()" 
+    [class.active]="search"
+    class="tab-button"
+  >Search</button>
 
-<div *ngIf="list">
+  <button 
+    (click)="handlereq()" 
+    [class.active]="req"
+    class="tab-button"
+  >Request</button>
+</div>
+
+<div class="tab-content">
+  <div *ngIf="list">
     <app-list></app-list>
-</div>
+  </div>
 
-<div *ngIf="search">
+  <div *ngIf="search">
     <app-search></app-search>
-</div>
+  </div>
 
-<div *ngIf="req">
-<app-req></app-req>
+  <div *ngIf="req">
+    <app-req></app-req>
+  </div>
 </div>

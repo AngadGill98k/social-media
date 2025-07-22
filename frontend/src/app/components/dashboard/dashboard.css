@@ -1,0 +1,32 @@
+
+#dashboard{
+    background-color: chocolate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#conatner{
+    background-color: aqua;
+    width: 40vh;
+    height: 95vh;
+    border-radius: 20px;
+}
+#banner{
+    background-color: bisque;
+    height: 20vh;
+    
+}
+#details{
+    background-color: cadetblue;
+    height: 10vh;
+}
+.btn{
+    display: flex;
+    background-color: yellow;
+    height: 5vh;
+    justify-content: space-around;
+}
+.main{
+    background-color: springgreen;
+}

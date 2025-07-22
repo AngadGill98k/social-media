@@ -1,0 +1,37 @@
+/* Parent UL */
+#dost-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* List item */
+.dost-item {
+  margin-bottom: 1rem;
+}
+
+/* Card-style clickable div */
+.dost-card {
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.dost-card:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.01);
+}
+
+/* Individual spans for styling (optional) */
+.dost-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.dost-id,
+.dost-room {
+  color: #555;
+}

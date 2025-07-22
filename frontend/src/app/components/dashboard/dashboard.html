@@ -1,0 +1,19 @@
+<div id="dashboard">
+    <div id="conatner">
+        <div id="banner">
+            <span>banner</span>
+        </div>
+        <div id="details">
+            details
+        </div>
+        <div class="btn">
+  <button (click)="toggle = true">Posts</button>
+  <button (click)="toggle = false">Create a Post</button>
+</div>
+
+<div class="main">
+  <app-posts *ngIf="toggle"></app-posts>
+  <app-create *ngIf="!toggle"></app-create>
+</div>
+    </div>
+</div>

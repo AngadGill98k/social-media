@@ -1,0 +1,18 @@
+<ul>
+  <li *ngFor="let post of posts" class="post-item">
+    <div class="msg">{{ post.msg || 'No message' }}</div>
+
+    <div class="actions">
+      <span>👍 Likes: {{ post.likes }}</span>
+      <span>👎 Dislikes: {{ post.dislikes }}</span>
+    </div>
+
+    <button (click)="toggleComments(post)">Show Comments</button>
+
+    <ul *ngIf="post.showComments">
+      <li *ngFor="let comment of post.comments">
+        {{ comment }}
+      </li>
+    </ul>
+  </li>
+</ul>

@@ -1,10 +1,9 @@
-it works
-<ul>
-    <li *ngFor="let dost of dosts">
-        <div (click)="join_room(dost)">
-            Name: {{ dost.dost_name }} |
-            ID: {{ dost.dost_id }} |
-            Chatroom: {{ dost.chatroom_id }}
-        </div>
-    </li>
+<ul id="dost-list">
+  <li *ngFor="let dost of dosts" class="dost-item">
+    <div class="dost-card" (click)="join_room(dost)">
+      <span class="dost-name">Name: {{ dost.name }}</span> |
+      <span class="dost-id">ID: {{ dost.id }}</span> |
+      <span class="dost-email">email: {{ dost.email }}</span>
+    </div>
+  </li>
 </ul>

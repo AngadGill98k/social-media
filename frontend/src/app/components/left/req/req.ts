@@ -12,29 +12,34 @@ export class Req implements OnInit{
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    fetch(``, {
+    fetch(`http://localhost:8000/ret_req`, {
       method: 'GET',
-      headers: {
-
-      },
       credentials: 'include'
     }).then(res=>res.json())
     .then(data=>{
       if(data.msg){
+        console.log(data)
         console.log("req found");
-        this.requests=data.request
+        this.requests=data.requests
       }else{
         console.log("no req found")
       }
     })
   }
-
+ getCookie(name: string): string | null {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop()!.split(';').shift()!;
+    return null;
+  }
   accept(id:String){
-    fetch(``, {
-      body: JSON.stringify({ id }),
+    const csrfToken = this.getCookie('XSRF-TOKEN');
+    fetch(`http://localhost:8000/update_status`, {
+      body: JSON.stringify({ id,status:"accepted" }),
       method: 'PUT',
       headers: {
-
+'Content-Type': 'application/json',
+      'X-XSRF-TOKEN': decodeURIComponent(csrfToken || '')
       },
       credentials: 'include'
     })
@@ -49,11 +54,13 @@ export class Req implements OnInit{
     })
   }
   reject(id:String){
-    fetch(``, {
-      body: JSON.stringify({ id }),
+     const csrfToken = this.getCookie('XSRF-TOKEN');
+    fetch(`http://localhost:8000/update_status`, {
+      body: JSON.stringify({ id,status:"rejected" }),
       method: 'PUT',
       headers: {
-
+'Content-Type': 'application/json',
+      'X-XSRF-TOKEN': decodeURIComponent(csrfToken || '')
       },
       credentials: 'include'
     })

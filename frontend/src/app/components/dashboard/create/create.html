@@ -1,0 +1,12 @@
+<div>
+  <h3>Create a Post</h3>
+  <textarea [(ngModel)]="content" rows="5" cols="30" placeholder="Write your post here..."></textarea>
+  
+  <br><br>
+  <button (click)="submitPost()">Submit</button>
+
+  <div class="preview">
+    <h4>Preview:</h4>
+    <pre>{{ content }}</pre> <!-- Shows it exactly as typed -->
+  </div>
+</div>

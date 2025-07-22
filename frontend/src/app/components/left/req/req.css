@@ -1,0 +1,60 @@
+#request-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.request-item {
+  margin-bottom: 1rem;
+}
+
+.request-card {
+  background-color: #f0f0f8;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: box-shadow 0.2s ease;
+}
+
+.request-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.request-name,
+.request-id {
+  margin: 0.3rem 0;
+  font-weight: 500;
+}
+
+.request-actions {
+  margin-top: 0.5rem;
+}
+
+.accept-btn,
+.reject-btn {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.accept-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.accept-btn:hover {
+  background-color: #3e8e41;
+}
+
+.reject-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.reject-btn:hover {
+  background-color: #d32f2f;
+}

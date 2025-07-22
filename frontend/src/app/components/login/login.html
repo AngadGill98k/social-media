@@ -1,0 +1,23 @@
+<div class="auth-form">
+  <h2>Signup</h2>
+  
+  <input type="text" placeholder="Username" [(ngModel)]="username1">
+  
+  <input type="text" placeholder="Mail (e.g., user@domain.ext)" [(ngModel)]="mail1">
+  
+  <input type="password" placeholder="Password" [(ngModel)]="password1">
+
+  <button (click)="handleSignup()">Signup</button>
+</div>
+
+<div class="auth-form">
+  <h2>Signin</h2>
+  
+  <input type="text" placeholder="Username" [(ngModel)]="username">
+  
+  <input type="text" placeholder="Mail (e.g., user@domain.ext)" [(ngModel)]="mail">
+  
+  <input type="password" placeholder="Password" [(ngModel)]="password">
+
+  <button (click)="handleSignin()">Signup</button>
+</div>

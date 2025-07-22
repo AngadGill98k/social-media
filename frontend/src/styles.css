@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+/* Full height setup */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; /* Prevents body scroll */
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+
+
+/* Root component */
+app-root {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
