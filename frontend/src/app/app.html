@@ -4,7 +4,7 @@
 <div class="container">
 <app-left class="left"></app-left>
 <app-middle class="middle"></app-middle>
-<app-right  class="right"></app-right>
+  <app-right class="right" *ngIf="hasChatroom()"></app-right>
 </div>
 
 <!-- <div class="dashboard">

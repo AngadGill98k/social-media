@@ -1,9 +1,18 @@
-<p>right works!</p>
-<div>
+<div class="chat-container">
+  <ul>
+    <li *ngFor="let m of msg2" [ngClass]="{'right-msg': m.sender_id === userid, 'left-msg': m.sender_id !== userid}">
+      <div class="msg-bubble">
+        <strong>User ID: {{ m.sender_id }}</strong>  
+        <span *ngIf="m.msg; else noMsg"> - {{ m.msg }}</span>
+        <ng-template #noMsg><em> (no message) </em></ng-template>
+        <br />
+        <small>{{ m.created_at | date: 'short' }}</small>
+      </div>
+    </li>
+  </ul>
 
-</div>
-
-<div>
-    <input [(ngModel)]="msg" type="text" placeholder="type mesg">
-    <button (click)="handlesend()">send</button>
+  <div class="input-area">
+    <input [(ngModel)]="msg" type="text" placeholder="Type message">
+    <button (click)="handlesend()">Send</button>
+  </div>
 </div>

@@ -2,6 +2,8 @@ import { Component,OnInit } from '@angular/core';
 import { dost } from '../../../models/dost';
 import { CommonModule } from '@angular/common';
 import { App } from '../../../app';
+import { Right } from '../../right/right';
+
 @Component({
   selector: 'app-list',
   imports: [CommonModule],
@@ -40,6 +42,12 @@ getCookie(name: string): string | null {
   join_room(dost:dost){
     
   const csrfToken = this.getCookie('XSRF-TOKEN');
+  if (App.chatroom_id) {
+    // Leave the previous room
+    App.socket.emit('leave_room', App.chatroom_id); 
+    console.log('Left room:', App.chatroom_id);
+  }
+
      fetch(`http://localhost:8000/join_room`, {
       method: 'POST',
       body:JSON.stringify({id:dost.id}),
@@ -56,6 +64,7 @@ getCookie(name: string): string | null {
       console.log(data)
         App.chatroom_id=data.chatroom_id
         App.msg=data.messages
+        console.log("chatroom id is",App.chatroom_id , App.msg)
       }else{
         console.log("msg not retrive")
       }
