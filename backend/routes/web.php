@@ -8,6 +8,7 @@ use App\Http\Controllers\Chats\chatcontroller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
+Route::get('/current_user', [UserController::class, 'getCurrentUser']);
 
 Route::post('/signin',[usercontroller::class,'signin']);
 Route::post('/signup',[usercontroller::class,'signup']);
@@ -16,10 +17,14 @@ Route::get('/ret_req',[chatcontroller::class,'ret_req']);
 Route::put('/update_status',[chatcontroller::class,'update_status']);
 Route::get('/ret_list',[chatcontroller::class,'ret_list']);
 Route::post('/join_room',[chatcontroller::class,'join_room']);
+Route::post('/save_msg',[chatcontroller::class,'save_msg']);
+
 
 Route::get('/posts',[post::class,'getallpost']);
 Route::post('/new_post',[post::class,'newpost']);
 Route::get('/ret_post',[post::class,'retpost']);
+
+
 
 
 Route::get('/sanctum/csrf-cookie', function () {

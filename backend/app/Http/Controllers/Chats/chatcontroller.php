@@ -35,4 +35,9 @@ class chatcontroller extends Controller{
         $res=(new chatservices)->join_room($data);
         return $res;
     }
+    public function save_msg(Request $request){
+        $data=$request->all();
+        $res=(new chatservices)->save_msg($data);
+        return $res;
+    }
 }

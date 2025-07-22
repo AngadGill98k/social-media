@@ -9,7 +9,7 @@ use App\Models\Chat;
 use App\Models\Friendship;
 use Illuminate\Support\Facades\Log;
 use App\Models\Message;
-
+use Illuminate\Support\Facades\Http;
 class chatservices
 {
     public function search_user($data)
@@ -220,7 +220,7 @@ class chatservices
 
         $chatroomid = $chatroom->id;
         $messages = Message::where('chatroom_id', $chatroomid)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at')
             ->get();
 
 
@@ -235,5 +235,34 @@ class chatservices
         } else {
             return response()->json(["msg" => false]);
         }
+    }
+
+    public function save_msg($data)
+    {
+        $userId = Auth::id();
+        $user = User::find($userId);
+        $senderName = $user ? $user->name : 'Unknown';
+        $msg = $data['msg'];
+        $chatroomid = $data['chatroomid'];
+        // Validate input
+        if (!$userId || !$msg || !$chatroomid) {
+            return response()->json(['msg' => false, 'error' => 'Missing data'], 400);
+        }
+
+        $message = new Message();
+        $message->chatroom_id = $chatroomid;
+        $message->sender_id = $userId;
+        $message->msg = $msg;
+        $message->save();
+
+         Http::post('http://localhost:3001/broadcast_message', [
+        'chatroom_id' => $chatroomid,
+        'sender_id' => $userId,
+        'sender_name' => $senderName,
+        'msg' => $msg,
+        'created_at' => $message->created_at->toISOString(),
+    ]);
+
+        return response()->json(['msg' => true, 'message_' => $message]);
     }
 }

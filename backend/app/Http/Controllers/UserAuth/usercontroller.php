@@ -4,6 +4,7 @@ namespace App\Http\Controllers\UserAuth;
 use App\Http\Controllers\Controller;
 use App\Services\User\userservices;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class usercontroller extends Controller{
@@ -21,7 +22,21 @@ class usercontroller extends Controller{
         Log::info($res);
         return $res;
     }
- 
+  public function getCurrentUser(Request $request)
+    {
+        $user = Auth::user();
+
+        if ($user) {
+            return response()->json([
+                'msg' => true,
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+            ]);
+        }
+
+        return response()->json(['msg' => false, 'error' => 'User not logged in'], 401);
+    }
 
 
 }
